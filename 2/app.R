@@ -3,6 +3,9 @@ library(shiny)
 animals <- c("dog", "cat", "mouse", "bird", "other", "I hate animals")
 
 ui <- fluidPage(
+  
+  # inputs
+  
   textInput("name", "What's your name?"),
   passwordInput("password", "What's your password?"),
   textAreaInput("story", "Tell me about yourself", rows = 3),
@@ -30,13 +33,29 @@ ui <- fluidPage(
   ),
   fluidRow(
     actionButton("eat", "Eat me!", class = "btn-block")
-  )
+  ),
   
+  # outputs
+  
+  textOutput("text"),
+  verbatimTextOutput("code"),
+  
+  tableOutput("static"),
+  dataTableOutput("dynamic"),
+  
+  plotOutput("plot", width="400px")
   
 )
 
 server <- function(input, output, session){
   
+  output$text <- renderText("Hello friend!")
+  output$code <- renderPrint("Hello friend!")
+  
+  output$static <- renderTable(head(mtcars))
+  output$dynamic <- renderDataTable(mtcars, options = list(pageLength=5))
+  
+  output$plot <- renderPlot(plot(1:5), res=96)
 }
 
 shinyApp(ui, server)

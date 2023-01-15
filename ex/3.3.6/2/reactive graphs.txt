@@ -1,0 +1,26 @@
+section 3.3.6
+
+ex 2
+
+server 1
+
+A > } 
+B > } > C > }
+        D > } > E > } > F
+
+server 2
+
+x1 > }
+x2 > } > x > }
+x3 > }       }
+             } > z
+             }
+y1 > } > y > }
+y2 > }
+
+server 3
+
+ia > } > a  > }
+         ib > } > b  > }
+                  ic > } > c  > }
+                           id > } > d

@@ -1,0 +1,3 @@
+code fail
+
+there are already functions called var() and range(), so calls to these will be ambiguous. Not clear whether reactive definition or statistical definition should be used.
